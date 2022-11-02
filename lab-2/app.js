@@ -5,7 +5,7 @@ const socialIcons = [
   },
   {
     icon: 'facebook-f',
-    title: 'Facbook',
+    title: 'Facebook',
   },
   {
     icon: 'twitter',
