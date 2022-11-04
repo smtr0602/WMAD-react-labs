@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 const studentList = [
   'Randall Malfoy',
@@ -8,36 +8,44 @@ const studentList = [
   'Rary Stibbons',
   'Gandalf Dresden',
   'Zeddicus Doom',
-]
+];
 
 export default class ChallengeTwo extends Component {
-  //declare the states
   state = {
-    arr: []
-  }
+    activeList: [],
+  };
 
-  //componentDidMount will execute when the page has loaded (this will only run once)
-  componentDidMount() { 
-    //display the student list after 3 seconds
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        activeList: studentList,
+      });
+    }, 3000);
   }
 
   //random button handler
   randomize = () => {
-    //shuffle the array and set the state
-
-  }
+    const newList = studentList.sort((a, b) => 0.5 - Math.random());
+    this.setState({
+      activeList: newList,
+    });
+  };
 
   render() {
     return (
       <>
         <h2>Challenge 2</h2>
-        <div className='msg'>
+        <div className="msg">
           <ul>
-            {/* display the list of students by iterating through the array */}
+            {this.state.activeList.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
         </div>
-        <button className='btn large'>Randomize</button>
+        <button className="btn large" onClick={this.randomize}>
+          Randomize
+        </button>
       </>
-    )
+    );
   }
 }

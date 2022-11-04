@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import ChallengeOne from './components/ChallengeOne';
+import ChallengeTwo from './components/ChallengeTwo';
 
 class App extends Component{
 
@@ -6,7 +8,8 @@ class App extends Component{
     return (
       <div className="App">
         <h1>React Lab 3</h1>
-        
+        <ChallengeOne/>
+        <ChallengeTwo/>
       </div>
     );
   }
