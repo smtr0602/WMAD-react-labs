@@ -50,6 +50,7 @@ class App extends Component {
         Object.keys(state.formValues).forEach((inputKey) => {
           newFormValues[inputKey] = {
             ...state.formValues[inputKey],
+            isError: true,
             value: '',
           };
         });
