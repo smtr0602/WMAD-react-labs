@@ -1,7 +1,7 @@
-import { Component } from "react";
+import { Component } from 'react';
 
-import Field from "./components/Field";
-import Button from "./components/Button";
+import Field from './components/Field';
+import Button from './components/Button';
 
 /**
  *
@@ -19,19 +19,79 @@ import Button from "./components/Button";
  */
 
 class App extends Component {
+  state = {
+    formValues: {},
+  };
+  setInputValues = (field, value) => {
+    this.setState((state) => {
+      return {
+        ...state,
+        formValues: {
+          ...state.formValues,
+          [field]: value,
+        },
+      };
+    });
+  };
+  hasError = () => {
+    if (!this.state.formValues) return true;
+    return Object.values(this.state.formValues).some((value) => value.isError);
+  };
+  hasValues = () => {
+    if (!this.state.formValues) return false;
+    return Object.values(this.state.formValues).some(
+      (value) => value.value !== ''
+    );
+  };
+  clearForm = () => {
+    if (window.confirm('Clear all form inputs?')) {
+      this.setState((state) => {
+        const newFormValues = {};
+        Object.keys(state.formValues).forEach((inputKey) => {
+          newFormValues[inputKey] = {
+            ...state.formValues[inputKey],
+            value: '',
+          };
+        });
+        return {
+          ...state,
+          formValues: newFormValues,
+        };
+      });
+    }
+  };
+  submitForm = () => {
+    alert('Successfully logged in.');
+  };
+
   render() {
     return (
       <div className="App">
         <h1>React Lab 4</h1>
         <h1>Login</h1>
         <div className="Container">
-          <Field label="Email" value="" />
-          <Field label="Password" value="" />
-
+          <Field
+            type="email"
+            value={this.state.formValues.email}
+            setInputValues={this.setInputValues}
+          />
+          <Field
+            type="password"
+            value={this.state.formValues.password}
+            setInputValues={this.setInputValues}
+          />
           <div className="Buttons">
-            <Button label="Clear" />
+            <Button
+              label="Clear"
+              handleClick={this.clearForm}
+              isDisabled={!this.hasValues()}
+            />
             <div className="Spacer" />
-            <Button label="Login" />
+            <Button
+              label="Login"
+              handleClick={this.submitForm}
+              isDisabled={this.hasError()}
+            />
           </div>
         </div>
       </div>
