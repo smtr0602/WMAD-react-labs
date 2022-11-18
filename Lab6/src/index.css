@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fredoka+One&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
 
 html,
 body {
@@ -14,12 +14,12 @@ body {
 body {
   background-color: #101012;
   color: white;
-  font: normal 1em/1.45em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 1em/1.45em 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 50px;
   margin: 0 auto;
 }
 h1 {
-  font-family: "Fredoka One", cursive;
+  font-family: 'Fredoka One', cursive;
   color: #15d880;
   font-size: 2.9rem;
   font-weight: 100;
@@ -41,8 +41,24 @@ h2 {
   margin: 0 auto;
 }
 
+.msgItem {
+  background-color: #336720;
+  list-style: none;
+  text-align: left;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.msgItem:nth-of-type(even) {
+  background-color: #15420d;
+}
+
+.msgItem + .msgItem {
+  margin-top: 10px;
+}
+
 .btn {
-  font-family: "Fredoka One", cursive;
+  font-family: 'Fredoka One', cursive;
   background-color: #6bbe92;
   /* width: 302px; */
   border: 0;
@@ -129,7 +145,7 @@ input.used ~ label {
 
 .bar:before,
 .bar:after {
-  content: "";
+  content: '';
   height: 2px;
   width: 0;
   bottom: 1px;
