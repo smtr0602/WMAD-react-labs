@@ -46,7 +46,8 @@ h2 {
   list-style: none;
   text-align: left;
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 30px 20px 20px;
+  position: relative;
 }
 
 .msgItem:nth-of-type(even) {
@@ -55,6 +56,17 @@ h2 {
 
 .msgItem + .msgItem {
   margin-top: 10px;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
 }
 
 .btn {
